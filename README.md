@@ -1,8 +1,10 @@
 About the project
+
 This is a basic e-commerce website built with Express, React, and Node and CSS. This website features a modern and intuitive design, with easy-to-use navigation
 and a simple shopping experience that puts the focus on the products.
 
 Features:
+
 Browse Items by Category
 Products pulled from FakeProductsAPI using Axios
 Add and delete items from the Shopping Cart
