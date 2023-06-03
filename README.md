@@ -11,4 +11,4 @@ Stripe(test) is enabled to complete your purchases
 👉 Live Demo: (https://jk-ecommerce-app.herokuapp.com/)
 
 Screenshots of the Project 📸
-![ScreenShot](/screenshots/Jamazon! - Google Chrome 6_3_2023 12_45_49 PM.png)
+![ScreenShot](screenshots/Jamazon! - Google Chrome 6_3_2023 12_45_49 PM.png)
