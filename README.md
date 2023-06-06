@@ -5,9 +5,10 @@ and a simple shopping experience that puts the focus on the products.
 
 Features:
 
-Browse Items by Category
-Products pulled from FakeProductsAPI using Axios
+Browse Items by Category(Products pulled from FakeProductsAPI using Axios)
+
 Add and delete items from the Shopping Cart
+
 Stripe checkout(test) is enabled to complete your purchases
 
 👉 Live Demo: (https://jk-ecommerce-app.herokuapp.com/)

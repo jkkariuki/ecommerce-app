@@ -20,7 +20,7 @@ app.use(express.json());
 app.get("*", (req, res) => {
   res.sendFile(
     // path.resolve(__dirname, "..", "client", "shopapp", "build", "index.html")
-    path.resolve(__dirname, "client", "public", "index.html")
+    path.resolve(__dirname, "client", "build", "index.html")
   );
 });
 
