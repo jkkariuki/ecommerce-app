@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
+// import { checkout } from "../APICalls";
 import React from "react";
 import { checkout } from "../APICalls";
 
@@ -11,25 +12,6 @@ function CartBasket(props) {
   const taxPrice = itemsPrice * 0.14;
   const shippingPrice = itemsPrice > 2000 ? 0 : 20;
   const totalPrice = itemsPrice + taxPrice + shippingPrice;
-
-  const checkout = async () => {
-    console.log(cartItems);
-    await fetch("/checkout", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${process.env.STRIPE_KEY}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ items: cartItems }),
-    })
-      .then((response) => {
-        console.log("RESPONSE!!!: " + response);
-        return response.json();
-      })
-      .then((response) => {
-        window.location.assign(response.url);
-      });
-  };
 
   return (
     <div>
@@ -81,7 +63,7 @@ function CartBasket(props) {
           </div>
           <hr />
           <div className="row">
-            <button onClick={checkout}>Checkout</button>
+            <button onClick={checkout(cartItems)}>Checkout</button>
           </div>
         </>
       )}
