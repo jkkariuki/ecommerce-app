@@ -3,7 +3,8 @@ const path = require("path");
 require("dotenv").config();
 const cors = require("cors");
 const PORT = process.env.PORT || 5000;
-const chkoutSuccess = "https://shopping-app-jk.herokuapp.com";
+const chkoutSuccess =
+  "https://65676b03c8b4903c1f6dcf95--stunning-cocada-d80e88.netlify.app";
 const stripe = require("stripe")(process.env.STRIPE_KEY);
 const app = express();
 
@@ -47,7 +48,8 @@ app.post("/checkout", async (req, res) => {
   const session = await stripe.checkout.sessions.create({
     line_items: lineItems,
     mode: "payment",
-    success_url: "https://shopping-app-jk.herokuapp.com/success",
+    success_url:
+      "https://65676b03c8b4903c1f6dcf95--stunning-cocada-d80e88.netlify.app/success",
     cancel_url: "https://shopping-app-jk.herokuapp.com/cancel",
   });
 
