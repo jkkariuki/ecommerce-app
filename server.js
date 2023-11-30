@@ -7,10 +7,12 @@ const chkoutSuccess = "https://e-commerce-app-1ttv.onrender.com";
 const stripe = require("stripe")(process.env.STRIPE_KEY);
 const app = express();
 
+const cwd = process.cwd();
+
 app.use(cors());
 app.use(
   //   express.static(path.join(__dirname, "..", "client", "shopapp", "build"))
-  express.static(path.resolve(__dirname, "client/build"))
+  express.static(path.resolve(cwd, "client", "build"))
 
   //   express.static(path.join(__dirname + "path"))
 );
@@ -20,7 +22,7 @@ app.use(express.json());
 app.get("*", (req, res) => {
   res.sendFile(
     // path.resolve(__dirname, "..", "client", "shopapp", "build", "index.html")
-    path.resolve(__dirname, "client", "build", "index.html")
+    path.resolve(cwd, "client", "build", "index.html")
   );
 });
 
