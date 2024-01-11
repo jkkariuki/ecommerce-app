@@ -63,7 +63,7 @@ function CartBasket(props) {
           </div>
           <hr />
           <div className="row">
-            <button onClick={checkout(cartItems)}>Checkout</button>
+            <button onClick={() => checkout(cartItems)}>Checkout</button>
           </div>
         </>
       )}
