@@ -54,7 +54,7 @@ export const checkout = async (cartItems) => {
     body: JSON.stringify({ items: cartItems }),
   })
     .then((response) => {
-      console.log(response);
+      // console.log(response);
       return response.json();
     })
     .then((response) => {
