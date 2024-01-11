@@ -8,21 +8,22 @@ const stripe = require("stripe")(process.env.STRIPE_KEY);
 const app = express();
 
 app.use(cors());
-app.use(
-  //   express.static(path.join(__dirname, "..", "client", "shopapp", "build"))
-  express.static(path.resolve(__dirname, "client/build"))
+// app.use(
+//   //   express.static(path.join(__dirname, "..", "client", "shopapp", "build"))
+//   express.static(path.resolve(__dirname, "client/build"))
 
-  //   express.static(path.join(__dirname + "path"))
-);
+//   //   express.static(path.join(__dirname + "path"))
+// );
 
-app.use(express.json());
+app.use(express.json({ extended: false }));
 
-app.get("*", (req, res) => {
-  res.sendFile(
-    // path.resolve(__dirname, "..", "client", "shopapp", "build", "index.html")
-    path.resolve(__dirname, "client", "build", "index.html")
-  );
-});
+//Express setup HEROKU
+// app.get("*", (req, res) => {
+//   res.sendFile(
+//     // path.resolve(__dirname, "..", "client", "shopapp", "build", "index.html")
+//     path.resolve(__dirname, "client", "build", "index.html")
+//   );
+// });
 
 app.post("/checkout", async (req, res) => {
   console.log("!!!!!!!!STRIPE KEY: " + process.env.STRIPE_KEY);
