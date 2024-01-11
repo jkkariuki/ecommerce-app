@@ -7,7 +7,13 @@ const chkoutSuccess = "https://e-commerce-app-1ttv.onrender.com";
 const stripe = require("stripe")(process.env.STRIPE_KEY);
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://ecommerce-rb26.onrender.com/" || "http://localhost:3000",
+    credentials: true,
+  })
+);
+
 // app.use(
 //   //   express.static(path.join(__dirname, "..", "client", "shopapp", "build"))
 //   express.static(path.resolve(__dirname, "client/build"))

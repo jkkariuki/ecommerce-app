@@ -55,7 +55,7 @@ export const checkout = async (cartItems) => {
   })
     .then((response) => {
       // console.log(response);
-      return response.json();
+      return JSON.parse(response.json());
     })
     .then((response) => {
       window.location.assign(response.url);
