@@ -65,11 +65,11 @@ export const checkout = async (cartItems) => {
       })
       .then((response) => {
         console.log(response);
-        // window.location.assign(response.data.url); // return response.json();
+        window.location.assign(response.data.url); // return response.json();
+      })
+      .then((response) => {
+        window.location.assign(response.url);
       });
-    // .then((response) => {
-    //   window.location.assign(response.url);
-    // });
   } catch (error) {
     throw new Error(error.message);
   }
