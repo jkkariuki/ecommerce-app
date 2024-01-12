@@ -56,7 +56,7 @@ export const checkout = async (cartItems) => {
 
   try {
     response = await axios
-      .post("/checkout", {
+      .post("https://e-commerce-app-1ttv.onrender.com/checkout", {
         headers: {
           Authorization: `Bearer ${process.env.STRIPE_KEY}`,
           "Content-Type": "application/json",
