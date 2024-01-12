@@ -5,7 +5,9 @@ const cors = require("cors");
 const PORT = process.env.PORT || 5000;
 const chkoutSuccess = "https://e-commerce-app-1ttv.onrender.com";
 const stripe = require("stripe")(process.env.STRIPE_KEY);
+
 const app = express();
+app.use(express.json({ extended: false }));
 
 app.use(
   cors({
@@ -20,8 +22,6 @@ app.use(
 
 //   //   express.static(path.join(__dirname + "path"))
 // );
-
-app.use(express.json({ extended: false }));
 
 //Express setup HEROKU
 // app.get("*", (req, res) => {
