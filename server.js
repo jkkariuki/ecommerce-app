@@ -11,7 +11,7 @@ app.use(express.json({ extended: false }));
 
 app.use(
   cors({
-    origin: "https://ecommerce-rb26.onrender.com/",
+    origin: "https://ecommerce-rb26.onrender.com",
     credentials: true,
   })
 );
