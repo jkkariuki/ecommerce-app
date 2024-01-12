@@ -44,20 +44,33 @@ export const getProductById = async (id) => {
 
 export const checkout = async (cartItems) => {
   console.log(cartItems);
+  let response;
 
-  await fetch("/checkout", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${process.env.STRIPE_KEY}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ items: cartItems }),
-  })
-    .then((response) => {
-      // console.log(response);
-      return JSON.parse(response.json());
-    })
-    .then((response) => {
-      window.location.assign(response.url);
-    });
+  // await fetch("/checkout", {
+  //   method: "POST",
+  //   headers: {
+  //     Authorization: `Bearer ${process.env.STRIPE_KEY}`,
+  //     "Content-Type": "application/json",
+  //   },
+  //   body: JSON.stringify({ items: cartItems }),
+
+  try {
+    response = await axios
+      .post("/checkout", {
+        headers: {
+          Authorization: `Bearer ${process.env.STRIPE_KEY}`,
+          "Content-Type": "application/json",
+        },
+        cartItems,
+      })
+      .then((response) => {
+        console.log(response);
+        window.location.assign(response.data.url); // return response.json();
+      })
+      .then((response) => {
+        window.location.assign(response.url);
+      });
+  } catch (error) {
+    throw new Error(error.message);
+  }
 };

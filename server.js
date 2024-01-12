@@ -34,7 +34,7 @@ app.use(express.json({ extended: false }));
 app.post("/checkout", async (req, res) => {
   console.log("!!!!!!!!STRIPE KEY: " + process.env.STRIPE_KEY);
   console.log(req.body);
-  const items = req.body.items;
+  const items = req.body.cartItems;
   console.log(items);
   let lineItems = [];
   items.map((item) => {
@@ -54,8 +54,8 @@ app.post("/checkout", async (req, res) => {
   const session = await stripe.checkout.sessions.create({
     line_items: lineItems,
     mode: "payment",
-    success_url: "http://localhost:3000/success",
-    cancel_url: "http://localhost:3000/cancel",
+    success_url: "https://ecommerce-rb26.onrender.com/success",
+    cancel_url: "https://ecommerce-rb26.onrender.com/cancel",
   });
 
   res.send(
